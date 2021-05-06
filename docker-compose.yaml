@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  database:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD=herpderp
+
+  client:
+    image: postgres:alpine
+    command: tail -f /dev/null
+    environment:
+      - POSTGRES_PASSWORD=herpderp
+    volumes:
+      - .:/src
+
